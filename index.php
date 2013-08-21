@@ -2,12 +2,14 @@
 	<head>
 		<title>Home | Scilab cloud</title>
 		<script  src="jquery.js" type="text/javascript"></script>
+		<script src="jquery.lightbox_me.js"></script>
 		<script>
 			$(document).ready(function(){
 				
 				var webroot = "http://cloud.scilab.in/";
 				var imgdata = '<img src="/images/ajax-loader.gif">';
 				$("a#single_image").fancybox();
+				//$("a#comment").fancybox();
 				$("#graph-dwnld").hide();
 				
 				$("#categories").live("change", function(){
@@ -141,15 +143,20 @@
 							}
 						});
 					}
-				});
-
+				});				
+				
+				
 				$("#submit").live("click",function(){
 					if ($('#graphicsmode').is(':checked')) {
 						val =1;
 					}else {
 						val='';
 					}
-					$("#submit").attr("value","Executing...");
+					$('.cls-body').addClass('loading-cls');
+					$("#submit").html("Executing...");
+					$('#submit').addClass('loading-cls');
+					$('#input').addClass('loading-cls');
+					$('#output').addClass('loading-cls');
 					// $("#submit").attr("disabled","disabled");	
 					$.ajax({
 						type: "POST",
@@ -160,7 +167,11 @@
 							msg = resp["response"];
 
 							// $("#submit").attr("disabled","");	
-							$("#submit").attr("value","Execute");
+							$("#submit").html("Execute");
+							$('.cls-body').removeClass('loading-cls');
+							$('#submit').removeClass('loading-cls');
+							$('#input').removeClass('loading-cls');
+							$('#output').removeClass('loading-cls');
 							$("#output").val(msg["output"].replace(/^\s+|\s+$/g, ''));
 							if (msg["graph"]!=""){
 								$("#single_image").attr("href","http://scilab-test.garudaindia.in/cloud/graphs/"+msg["user_id"]+"/"+msg["graph"]+".png");
@@ -172,6 +183,9 @@
 						}
 					});
 				});
+				
+				// collect book details
+				
 			});
 		</script>
     <script src="fancybox.js"></script>
@@ -243,9 +257,45 @@
     		font: 14px Arial;
     		font-weight: bold;
     	}
+    	#commentBtn {
+		background: #efefef;
+		text-decoration: none;
+		/*font-weight: bold;*/
+		color: black;
+		padding: 4px;
+		float: right;
+		border: 2px solid;
+		margin-right: 5px;
+	}
+	.execute-button {
+                background: #efefef;
+                text-decoration: none;
+                /*font-weight: bold;*/
+                color: black;
+                padding: 4px;
+                border: 2px solid;
+                margin-left: 5px;
+        }
+    	#lightbox-form{
+    		background: #FFFFFF;
+    		padding: 15px;
+    		-moz-border-radius: 5px;
+    		-webkit-border-radius: 5px;
+    		-o-border-radius: 5px;
+    		border-radius: 5px;
+    		position: relative;
+    	}
+    	#lightbox-close{
+    		position: absolute;
+    		top: -12;
+    		right: -12	;
+    	}
+	.loading-cls{
+		cursor:wait;
+	}
     </style>
 	</head>
-	<body background="images/body-bg.png">
+	<body background="images/body-bg.png" class="cls-body">
 		<div class="banner">
 			<a href="http://scilab.in" class="home-link" title="scilab.in"><img src="images/scilab-logo.png" class="logo" alt="Home"></a>
 			<div class="site-name">Scilab on Cloud</div>
@@ -301,17 +351,118 @@
 			</tr>
 			
 			<tr class="bclr">
-				<td><textarea name="code" id="input" rows="20" cols="40"></textarea></td>
+				<td><textarea name="code" id="input" rows="20" cols="40">Write a new code or select existing from above category...</textarea></td>
 				<td><textarea name="code" id="output" rows="20" cols="40" readonly="readonly"></textarea></td>
 			</tr>
 			<tr class="bclr">
-				<td colspan="2">
-					&nbsp;&nbsp;<input type="button" id="submit" name="submit" value="Execute"><!--
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="graphicsmode" ><span class="white-text">&nbsp;Enable Graphics</span>-->
+				<td>
+					<!-- &nbsp;&nbsp;<input type="button" id="submit" name="submit" value="Execute"> -->
+					<a href="#" id="submit" class="execute-button">Execute</a>
+					<!-- <input type="checkbox" id="graphicsmode" ><span class="white-text">&nbsp;Enable Graphics</span> -->
+				</td>
+				<td>
+					<a id="commentBtn" href="#" onclick="tester();"> Comment</a>
 				</td>
 			</tr>
 		</table>
 		<div class="footer white-text"><p class="test-footer" style="font-size: 10px;color: lightgoldenrodyellow;text-align: center;margin: 0px 0px 0px 0px;">Disclaimer: Scilab is a trademark of <a href="http://www.inria.fr/en/" target="_blank" class="ext" style="color:#FFFFFF;">Inria</a><span class="ext"></span> (registered at the INPI for France and the rest of the World) and <a href="http://www.scilab-enterprises.com/" target="_blank" class="ext" style="color:#FFFFFF;">Scilab Enterprises</a><span class="ext"></span> is granted exclusive rights for Scilab Trademark.</p>
-<h3 style="margin:3px 0px 0px 0px;">Copyright © IIT Bombay</h3></div>
+<h3 style="margin:3px 0px 0px 0px;">Copyright &copy; IIT Bombay</h3></div>
+
+	<!-- lightbox form -->
+	<div id="lightbox-form" style="display:none">
+		<a href="#" id="lightbox-close" onclick='$("#lightbox-form").trigger("close");'><img src="images/close.png" width="30px"></a>
+		<div id="myDiv"></div>
+		<form name="comment_form" id="comment_form">
+							<p>Please fill the details.</p>
+							<select name="error_type">
+								<option>-- Select Type of issue --</option>
+								<option value=1> Blank Code / Incorrect code</option>
+								<option value=2>Output error</option>
+								<option value=3>Executed but Incorrect output</option>
+								<option value=4>Missing example(s)</option>
+								<option value=6>Blank output</option>
+								<option value=7>Any other</option>
+							</select> <br><br>
+							
+							<label>Description:</label><br>
+							<textarea name="comment" rows="6" cols="50" placeholder="Please tell us more..."></textarea> <br><br>
+							<label>Email (optional):</label><br>
+							<input type="text" name='email'> <br><br>
+
+					<input id="submitButtonId" type="button" value="Submit" onclick="commentSubmit();">
+		</form>
+
+	</div> <!-- / lightbox-form -->
+	<script type="text/javascript">
+			// LightBox
+			$('#commentBtn').click(function(e) {
+					document.getElementById("comment_form").style.display = "block";
+                                        document.getElementById("myDiv").innerHTML="";
+					$('#lightbox-form').lightbox_me({
+						  centered: true, 
+						  onLoad: function() { 
+						      $('#lightbox-form').find('input:first').focus()
+						      }
+						  });
+					e.preventDefault();
+				});
+				
+				//Ajax form submission
+				function commentSubmit()
+				{		
+						//fetching all form values
+						error_type = document.comment_form.error_type.value;
+						comment = document.comment_form.comment.value;			
+						email = document.comment_form.email.value;
+						
+						
+						//retrive the precise details
+						category = document.getElementById("categories").value; 
+						books = document.getElementById("books");
+						if(books){
+							books = books.value;
+						}
+						else{
+							books = "null";
+						}
+						
+						chapter = document.getElementById("chapter");
+						if(chapter){
+							chapter = chapter.value;
+						}
+						else{
+							chapter = "null";
+						}
+						
+						example = document.getElementById("example");
+						if(example){
+							example = example.value;
+						}else{
+							example = "null";	
+						}
+						
+					var xmlhttp;
+					if (window.XMLHttpRequest)
+						{// code for IE7+, Firefox, Chrome, Opera, Safari
+						xmlhttp=new XMLHttpRequest();
+						}
+					else
+						{// code for IE6, IE5
+						xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+						}
+					xmlhttp.onreadystatechange=function()
+						{
+						if (xmlhttp.readyState==4 && xmlhttp.status==200)
+							{
+							document.getElementById("comment_form").style.display="none";
+							document.getElementById("myDiv").innerHTML="Thanks for your comment.";
+							}
+						}
+					request_string = "type="+error_type+"&comment="+comment+"&email="+email+"&category="+category+"&books="+books+"&chapter="+chapter+"&example="+example;
+					xmlhttp.open("POST","http://cloud.scilab.in/comment.php",true);
+					xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+					xmlhttp.send(request_string);
+				}
+		</script>
 	</body>
 </html>
