@@ -1,0 +1,142 @@
+div.lalg {
+	float: left;
+	width: 100px;
+	font-weight: bold;
+}
+#input {
+	width: 100%;
+height: 350px;
+	resize: none;
+	background-color: #fffcfc;
+	color: black;
+font-family: courier;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: 0px;
+}
+#output {
+	width: 100%;
+height: 350px;
+	resize: none;
+font-family: courier;
+	background-color: #fffcfc;
+	color: blue;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: 0px;
+}
+.bclr {
+	background: #7f7f7f;
+}
+.banner {
+	position: relative;
+	margin-bottom: 10px;
+	height: 45px;
+	width: 100%;
+	background-color: #4E3419;
+	border-bottom: 0 solid #2E2E2E;
+	border-top: 0 solid #2E2E2E;
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.7);
+}
+#banner-tabs{
+	display: inline-block;
+	float: right;
+	margin: 16px 130px 0 0;
+}
+#banner-tabs a{
+	text-decoration: none;
+	color: #ffffff;
+	margin: 0 25px 0 0;
+}
+.tab-text{
+	background: #ffffff;
+	width: 400px;
+	padding: 25px;
+	-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		-o-border-radius: 5px;
+		border-radius: 5px;
+	text-align: justify;
+	font-size: .8em;
+}
+	.logo {
+		height: 31px;
+		margin: 8px 0 0 10px;
+		float: left;
+	}
+#scilab-logo{
+	position: absolute;
+	right: 15px;
+	top: 3px;
+	width: 90px;	
+}
+.site-name {
+display: inline-block;
+	width: auto;
+	font: 32px Arial;
+	color: white;
+	padding: 6px 0 0 60px;
+}
+.footer {
+	margin-top: 10px;
+	width: 100%;
+	background-color: #4E3419;
+	border-bottom: 0 solid #2E2E2E;
+	border-top: 0 solid #2E2E2E;
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.7);
+	text-align: center;
+	padding-top: 12px;
+	padding-bottom: 12px;
+}
+.white-text {
+	color: white;
+	font: 14px Arial;
+	font-weight: bold;
+}
+#commentBtn {
+	background: #efefef;
+	text-decoration: none;
+	/*font-weight: bold;*/
+	color: black;
+	padding: 4px;
+	float: right;
+	border: 2px solid;
+	margin-right: 5px;
+}
+.execute-button {
+    background: #efefef;
+    text-decoration: none;
+    /*font-weight: bold;*/
+    color: black;
+    padding: 4px;
+    border: 2px solid;
+    margin-left: 5px;
+}
+#lightbox-form{
+	background: #FFFFFF;
+	padding: 15px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
+	position: relative;
+}
+.lightbox-close{
+	position: absolute;
+	top: -12;
+	right: -12	;
+}
+#email-notify{
+	display: none;
+}
+.loading-cls{
+	cursor:wait;
+}
+#contrib,
+#book-download,
+#chapter-download,
+#example-download {
+    display: none;
+    margin-right: 5px;
+    float: right;
+}

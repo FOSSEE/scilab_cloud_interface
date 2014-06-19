@@ -19,6 +19,7 @@
 			$counter++;
 		}
 		$data .= '</select>';
+		$data .= '<span id="book-download"> <a href="#">Download Book</a></span>';
 		echo $data;
 		exit;
 	}elseif(isset($_POST['bid'])) {
@@ -30,6 +31,7 @@
 			$data .= '<option value="' . $row->id . '">' . $row->number . ' &nbsp;-&nbsp; ' . $row->name . '</option>';
 		}
 		$data .= '</select>';
+		$data .= '<span id="chapter-download"> <a href="#">Download Chapter</a></span>';
 		echo json_encode($data);
 		exit;
 	}elseif(isset($_POST['cid'])) {
@@ -41,6 +43,7 @@
 			$data .= '<option value="' . $row->id . '">' . $row->number . ' &nbsp;-&nbsp; ' . $row->caption . '</option>';
 		}
 		$data .= '</select>';
+		$data .= '<span id="example-download"> <a href="#">Download Example</a></span>';
 		echo json_encode($data);
 		exit;
 	}
