@@ -13,6 +13,7 @@
 			$(document).ready(function(){
 				
 				var webroot = "http://cloud.scilab.in/";
+				// var webroot = "http://localhost/cloud/";
 				var imgdata = '<img src="images/ajax-loader.gif">';
 				$("#single_image").fancybox();
 				$('.fancymenu').fancybox({title: ""});
@@ -191,68 +192,6 @@
 				});
 			});
 		</script>
-		<script type="text/javascript">
-			//Ajax form submission
-			function commentSubmit() {		
-				//fetching all form values
-				error_type = document.comment_form.error_type.value;
-				comment = document.comment_form.comment.value;			
-				email = document.comment_form.email.value;
-				
-				//retrive the precise details
-				category = document.getElementById("categories").value; 
-				books = document.getElementById("books");
-				if(books) {
-					books = books.value;
-				}else {
-					books = "null";
-				}
-				
-				chapter = document.getElementById("chapter");
-				if(chapter) {
-					chapter = chapter.value;
-				}else {
-					chapter = "null";
-				}
-				
-				example = document.getElementById("example");
-				if(example) {
-					example = example.value;
-				}else {
-					example = "null";	
-				}
-					
-				var xmlhttp;
-				if (window.XMLHttpRequest) {
-					// code for IE7+, Firefox, Chrome, Opera, Safari
-					xmlhttp=new XMLHttpRequest();
-				}else {
-					// code for IE6, IE5
-					xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-				}
-				xmlhttp.onreadystatechange=function() {
-					if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-						document.getElementById("comment_form").style.display="none";
-						document.getElementById("myDiv").innerHTML="Thanks for your comment.";
-					}
-				}
-				request_string = "type="+error_type+"&comment="+comment+"&email="+email+"&category="+category+"&books="+books+"&chapter="+chapter+"&example="+example;
-				xmlhttp.open("POST","http://cloud.scilab.in/comment.php",true);
-				xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-				xmlhttp.send(request_string);
-			}
-			
-			function showEmail() {
-				checkbox = document.comment_form.notify;
-				emailDiv = document.getElementById("email-notify");
-				if(checkbox.checked){
-					emailDiv.style.display = "block";
-				}
-				else{
-					emailDiv.style.display = "none";
-				}
-			}
-		</script>
 	</head>
 	<body background="images/body-bg.png" class="cls-body">
 		<div class="banner">
@@ -398,13 +337,15 @@
 					<a id="commentBtn" class="fancymenu" href="#lightbox-form"> Report bug / Give feedback</a>
 					
 					<div id="lightbox-form" style="display:none">
-						<div id="myDiv"></div>
+						<div id="error-msg"></div>
+						<div id="success-msg">Thank you for your valuable feedback.</div>
 
-						<form name="comment_form" id="comment_form">
+                        <div id="comment-form-wrapper">
+						<form id="comment-form" id="comment_form">
 							<p>Please fill the details.</p>
 
-							<select name="error_type">
-								<option>-- Select Type of issue --</option>
+							<select id="comment-type">
+								<option value=''>-- Select Type of issue --</option>
 								<option value=1> Blank Code / Incorrect code</option>
 								<option value=2>Output error</option>
 								<option value=3>Execution error</option>
@@ -415,16 +356,17 @@
 							<br><br>
 
 							<label>Description:</label><br>
-							<textarea name="comment" rows="6" cols="50" placeholder="Please tell us more..."></textarea> <br><br>
-							<input name="notify" type="checkbox" onclick="showEmail();"> I want to be notified. <br> <br>
+							<textarea id="comment-body" rows="6" cols="50" placeholder="Please tell us more..."></textarea> <br><br>
+							<input id="comment-notify" type="checkbox"> I want to be notified. <br> <br>
 			
-							<div id="email-notify">
+							<div id="comment-email-wrapper">
 								<label>Email (optional):</label><br>
-								<input type="text" name='email'> <br><br>
+								<input id="comment-email" type="text" name='email'> <br><br>
 							</div>
 							
-							<input id="submitButtonId" type="button" value="Submit" onclick="commentSubmit();">
+							<input type="submit" value="Submit">
 						</form>
+                        </div> <!-- #/comment-form-wrapper -->
 					</div>
 				</td>
 			</tr>
@@ -437,5 +379,6 @@
 		</div>
 
 	<script src="acknowledge.js"></script>
+    <script src="comment.js"></script>
 	</body>
 </html>
