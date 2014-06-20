@@ -12,8 +12,8 @@
 		<script>
 			$(document).ready(function(){
 				
-				// var webroot = "http://cloud.scilab.in/";
-				var webroot = "http://localhost/cloud/";
+				var webroot = "http://cloud.scilab.in/";
+				// var webroot = "http://localhost/cloud/";
 				var imgdata = '<img src="images/ajax-loader.gif">';
 				$("#single_image").fancybox();
 				$('.fancymenu').fancybox({title: ""});

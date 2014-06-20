@@ -14,8 +14,8 @@
 
 			 	echo "<p>Thank you for your valuable feedback.</p>";
 
-				// $to = "rush2jrp@gmail.com, mukulrkulkarni@gmail.com, lavitha89@gmail.com, kannan@iitb.ac.in, kiran@fossee.in, manasdas17@gmail.com";
-				$to = "rush2jrp@gmail.com, jayaram@iitb.ac.in";
+				$to = "rush2jrp@gmail.com, mukulrkulkarni@gmail.com, lavitha89@gmail.com, kannan@iitb.ac.in, kiran@fossee.in, manasdas17@gmail.com";
+				// $to = "rush2jrp@gmail.com, jayaram@iitb.ac.in";
 				$subject = "New Cloud Comment";
 				$message = "
                     A new comment has been posted. <br> 
