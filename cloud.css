@@ -1,3 +1,9 @@
+.pull-left {
+    float: left !important;
+}
+.pull-right{
+    float: right !important;
+}
 div.lalg {
 	float: left;
 	width: 100px;
@@ -150,4 +156,23 @@ display: inline-block;
     display: none;
     padding: 5px;
     border: 2px solid green;
+}
+#nos {
+    display: none;
+    padding: 2px;
+    color: #333333;
+    background: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 0.9em;
+    -webkit-transition: all .5s ease-out;
+    -moz-transition: all .5s ease-out;
+    -o-transition: all .5s ease-out;
+    transition: all .5s ease-out;
+}
+#nos:hover {
+    background: #333333;
+    color: #ffffff;
+    border: 1px solid #ffffff;
 }

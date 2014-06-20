@@ -12,8 +12,8 @@
 		<script>
 			$(document).ready(function(){
 				
-				var webroot = "http://cloud.scilab.in/";
-				// var webroot = "http://localhost/cloud/";
+				// var webroot = "http://cloud.scilab.in/";
+				var webroot = "http://localhost/cloud/";
 				var imgdata = '<img src="images/ajax-loader.gif">';
 				$("#single_image").fancybox();
 				$('.fancymenu').fancybox({title: ""});
@@ -134,6 +134,7 @@
 				});
 
 				$("#example").live("change", function(){
+                    $("#nos").hide();
 					id = $("#example").val();
 					folder = $("#books").val();
 					if(id == "") {
@@ -146,15 +147,21 @@
 							data:{
 								'eid': id
 							},
+                            dataType: "json",
 							success: function(output) {
-								$("#input").val(output);
+								$("#input").val(output.code);
+                                if(output.nos) {
+                                    $("#nos").html(output.nos + " reviews").show();
+                                    $("#nos").attr("href", "http://scilab.in/cloud_comments/" + id);
+                                }
 								$('#output').val('');
 							}
 						});
 					}
 				});				
-				
-				
+                $("body").live("change", "#categories, #books, #chapter", function() {
+                    $("#nos").hide();
+                });
 				$("#submit").live("click",function(){
 					if ($('#graphicsmode').is(':checked')) {
 						val =1;
@@ -291,7 +298,14 @@
 			</tr>
 			
 			<tr class="bclr">
-				<td class="white-text">Scilab Code</td>
+                <td class="white-text">
+                    <span class="pull-left">
+                        Scilab Code
+                    </span>
+                    <span class="pull-right">
+                        <a id="nos" href="#" target="_blank"></a>
+                    </span>
+                </td>
 				<td class="white-text">Output</td>
 			</tr>
 			

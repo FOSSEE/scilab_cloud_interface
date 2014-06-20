@@ -19,7 +19,17 @@
 				$data .= $file;
 			}
 		}
-		echo $data;
+        $query = "
+            SELECT id FROM scilab_cloud_comment
+            WHERE example = {$_REQUEST['eid']}
+        ";
+        $result = mysql_query($query);
+        $nos = mysql_num_rows($result);
+        
+        echo json_encode(array(
+            "code" => $data,
+            "nos" => $nos
+        ));
 		exit;
 	}else {
 		echo "Invalid request!";
