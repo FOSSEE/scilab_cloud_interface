@@ -1,6 +1,10 @@
 <?php
-	/*if(!$_GET['v'])
-		echo '<script type="text/javascript"> window.location="under-maintenance.html"; </script>';*/
+    require "get_elements.php";
+    $eid = 0;
+    if(isset($_GET["eid"]) && $_GET["eid"] != '') {
+        $eid = $_GET["eid"];
+        $elements = get_elements($eid);
+    }
 ?>
 <html>
 	<head>
@@ -12,8 +16,8 @@
 		<script>
 			$(document).ready(function(){
 				
-				var webroot = "http://cloud.scilab.in/";
-				// var webroot = "http://localhost/cloud/";
+				// var webroot = "http://cloud.scilab.in/";
+				var webroot = "http://localhost/cloud/";
 				var imgdata = '<img src="images/ajax-loader.gif">';
 				$("#single_image").fancybox();
 				$('.fancymenu').fancybox({title: ""});
@@ -256,21 +260,29 @@
 			<tr>
 				<td colspan="2">
 					<div class="lalg">Category</div>
+                    <?php 
+                        function is_selected($nos) {
+                            global $elements;
+                            if($nos == $elements["category"]) {
+                                return "selected";
+                            }
+                        }
+                    ?>
 					<select id="categories" name="categories">
-						<option value="">-- Select category --</option>
-						<option value="10">Analog Electronics</option>
-						<option value="3">Chemical Engineering</option>
-						<option value="12">Computer Programming</option>
-						<option value="2">Control Theory &amp; Control Systems</option>
-						<option value="7">Digital Communications</option>
-						<option value="11">Digital Electronics</option>
-						<option value="8">Electrical Technology</option>
-						<option value="1">Fluid Mechanics</option>
-						<option value="9">Mathematics &amp; Pure Science</option>
-						<option value="5">Mechanical Engineering</option>
-						<option value="6">Signal Processing</option>
-						<option value="4">Thermodynamics</option>
-						<option value="13">Others</option>
+                        <option value="">-- Select category --</option>
+                        <option value="10" <?php echo is_selected(10); ?>>Analog Electronics</option>
+						<option value="3" <?php echo is_selected(3); ?>>Chemical Engineering</option>
+						<option value="12" <?php echo is_selected(12); ?>>Computer Programming</option>
+						<option value="2" <?php echo is_selected(2); ?>>Control Theory &amp; Control Systems</option>
+						<option value="7" <?php echo is_selected(7); ?>>Digital Communications</option>
+						<option value="11" <?php echo is_selected(11); ?>>Digital Electronics</option>
+						<option value="8" <?php echo is_selected(8); ?>>Electrical Technology</option>
+						<option value="1" <?php echo is_selected(1); ?>>Fluid Mechanics</option>
+						<option value="9" <?php echo is_selected(9); ?>>Mathematics &amp; Pure Science</option>
+						<option value="5" <?php echo is_selected(5); ?>>Mechanical Engineering</option>
+						<option value="6" <?php echo is_selected(6); ?>>Signal Processing</option>
+						<option value="4" <?php echo is_selected(4); ?>>Thermodynamics</option>
+						<option value="13" <?php echo is_selected(13); ?>>Others</option>
 					</select>
 					<span id="contrib"> <a class="fancymenu" href="#acknowledge">+ Contributor</a></span>
 				</td>
@@ -278,22 +290,34 @@
 			
 			<tr>
 				<td colspan="2">
-					<div id="lb" class="lalg"></div>
-					<div id="b"></div>
+                    <div id="lb" class="lalg">
+                        <?php if($eid) echo "Book"; ?>
+                    </div>
+                    <div id="b">
+                        <?php if($eid) echo $elements["books"]; ?>
+                    </div>
 				</td>
 			</tr>
 			
 			<tr>
 				<td colspan="2">
-					<div id="lc" class="lalg"></div>
-					<div id="c"></div>
+                    <div id="lc" class="lalg">
+                        <?php if($eid) echo "Chapter"; ?>
+                    </div>
+                    <div id="c">
+                        <?php if($eid) echo $elements["chapters"]; ?>
+                    </div>
 				</td>
 			</tr>
 			
 			<tr>
 				<td colspan="2">
-					<div id="le" class="lalg"></div>
-					<div id="e"></div>
+                    <div id="le" class="lalg">
+                        <?php if($eid) echo "Chapter"; ?>
+                    </div>
+                    <div id="e">
+                        <?php if($eid) echo $elements["examples"]; ?>
+                    </div>
 				</td>
 			</tr>
 			
