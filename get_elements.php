@@ -78,6 +78,13 @@
         $elements["books"] = $data;
         $elements["category"] = $category_id;
         
+        /* retreving cloud_comments */
+        $query = "
+            SELECT id FROM scilab_cloud_comment WHERE example = {$example_id}
+        ";
+        $result = mysql_query($query);
+        $elements["nos"] = mysql_num_rows($result);
+        
         return $elements;
     }
 ?>

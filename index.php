@@ -16,8 +16,8 @@
 		<script>
 			$(document).ready(function(){
 				
-				// var webroot = "http://cloud.scilab.in/";
-				var webroot = "http://localhost/cloud/";
+				var webroot = "http://cloud.scilab.in/";
+				// var webroot = "http://localhost/cloud/";
 				var imgdata = '<img src="images/ajax-loader.gif">';
 				$("#single_image").fancybox();
 				$('.fancymenu').fancybox({title: ""});
@@ -327,7 +327,13 @@
                         Scilab Code
                     </span>
                     <span class="pull-right">
-                        <a id="nos" href="#" target="_blank"></a>
+                        <?php 
+                            if($eid && $elements["nos"]) {
+                                echo "<a id='nos' href='http://scilab.in/cloud_comments/{$eid}' target='_blank' style='display: inline;'>{$elements['nos']} reviews</a>";
+                            } else {
+                                echo "<a id='nos' href='#' target='_blank'></a>";
+                            }
+                        ?>
                     </span>
                 </td>
 				<td class="white-text">Output</td>
