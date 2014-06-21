@@ -284,7 +284,7 @@
 						<option value="4" <?php echo is_selected(4); ?>>Thermodynamics</option>
 						<option value="13" <?php echo is_selected(13); ?>>Others</option>
 					</select>
-					<span id="contrib"> <a class="fancymenu" href="#acknowledge">+ Contributor</a></span>
+                    <span id="contrib" <?php if($eid) echo "style='display: inline;'"?>> <a class="fancymenu" href="#acknowledge">+ Contributor</a></span>
 				</td>
 			</tr>
 			
@@ -415,7 +415,13 @@
 				</td>
 			</tr>
 		</table>
-		<div id="acknowledge" style="display:none;"></div>
+        <div id="acknowledge" style="display:none;">
+            <?php 
+                if($eid) {
+                    echo $elements["contrib"];
+                }
+            ?>
+        </div>
 		<div class="footer white-text">
 			<p class="test-footer" style="font-size: 10px;color: lightgoldenrodyellow;text-align: center;margin: 0px 0px 0px 0px;">Disclaimer: Scilab is a trademark of <a href="http://www.inria.fr/en/" target="_blank" class="ext" style="color:#FFFFFF;">Inria</a><span class="ext"></span> (registered at the INPI for France and the rest of the World) and <a href="http://www.scilab-enterprises.com/" target="_blank" class="ext" style="color:#FFFFFF;">Scilab Enterprises</a><span class="ext"></span> is granted exclusive rights for Scilab Trademark.
 			</p>

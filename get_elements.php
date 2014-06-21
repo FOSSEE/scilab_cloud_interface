@@ -23,7 +23,7 @@
             $chapter_id = $row->chapter_id;
         }
         $data .= '</select>';
-        $data .= '<span id="example-download"> <a href="#">Download Example</a></span>';
+        $data .= '<span id="example-download" style="display: inline;"> <a href="#">Download Example</a></span>';
         $elements["examples"] = $data;
         
         /* retreving chapters */
@@ -43,7 +43,7 @@
             $preference_id = $row->preference_id;
         }
         $data .= '</select>';
-        $data .= '<span id="chapter-download"> <a href="#">Download Chapter</a></span>';
+        $data .= '<span id="chapter-download" style="display: inline;"> <a href="#">Download Chapter</a></span>';
         $elements["chapters"] = $data;
         
         /* retreving  books*/
@@ -74,7 +74,7 @@
             $category_id = $row->category;
         }
         $data .= '</select>';
-        $data .= '<span id="book-download"> <a href="#">Download Book</a></span>';
+        $data .= '<span id="book-download" style="display: inline;"> <a href="#">Download Book</a></span>';
         $elements["books"] = $data;
         $elements["category"] = $category_id;
         
@@ -84,6 +84,21 @@
         ";
         $result = mysql_query($query);
         $elements["nos"] = mysql_num_rows($result);
+        
+        /* retreving contributor details */
+        $book_id = $preference_id;
+        $output = "";
+        $query = "select * from textbook_companion_preference where id = {$book_id}";
+        $result = mysql_query($query);
+        $preference =mysql_fetch_array($result);
+        $query = "select * from textbook_companion_proposal where id = {$preference['proposal_id']}";
+        $result = mysql_query($query);
+        $proposal = mysql_fetch_array($result);
+        $output .= "<div class='contributor'><b>Contributor:</b> {$proposal['full_name']} </div>";
+        $output .= "<div class='teacher'><b>Mentor:</b> {$proposal['faculty']} </div>";
+        $output .= "<div class='reviewer'><b>Book Reviewer:</b> {$proposal['reviewer']} </div>";
+        $output .= "<div class='download'><b>College Name:</b> {$proposal['university']} </div>";
+        $elements["contrib"] = $output;
         
         return $elements;
     }
