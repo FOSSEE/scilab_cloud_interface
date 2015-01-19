@@ -386,8 +386,9 @@
 
                         <div id="comment-form-wrapper">
 						<form id="comment-form" id="comment_form">
-							<p>Please fill the details.</p>
+							<p><u>Please fill the details.</u></p>
 
+							<label>Feedback/Bug type:</label><br>
 							<select id="comment-type">
 								<option value=''>-- Select Type of issue --</option>
 								<option value=1> Blank Code / Incorrect code</option>
@@ -395,7 +396,7 @@
 								<option value=3>Execution error</option>
 								<option value=4>Missing example(s)</option>
 								<option value=6>Blank output</option>
-								<option value=7>Any other</option>
+								<option value=7>Any other / General</option>
 							</select>
 							<br><br>
 
@@ -404,7 +405,7 @@
 							<input id="comment-notify" type="checkbox"> I want to be notified. <br> <br>
 			
 							<div id="comment-email-wrapper">
-								<label>Email (optional):</label><br>
+								<label>Email:</label><br>
 								<input id="comment-email" type="text" name='email'> <br><br>
 							</div>
 							
@@ -424,6 +425,7 @@
         </div>
 		<div class="footer white-text">
 			<p class="test-footer" style="font-size: 10px;color: lightgoldenrodyellow;text-align: center;margin: 0px 0px 0px 0px;">Disclaimer: Scilab is a trademark of <a href="http://www.inria.fr/en/" target="_blank" class="ext" style="color:#FFFFFF;">Inria</a><span class="ext"></span> (registered at the INPI for France and the rest of the World) and <a href="http://www.scilab-enterprises.com/" target="_blank" class="ext" style="color:#FFFFFF;">Scilab Enterprises</a><span class="ext"></span> is granted exclusive rights for Scilab Trademark.
+            <br>Powered by Garuda cloud -  <a href="http://>megha.garudaindia.in" target="_blank" class="ext" style="color:#FFFFFF;">megha.garudaindia.in</a>
 			</p>
 			<h3 style="margin:3px 0px 0px 0px;">Copyright &copy; IIT Bombay</h3>
 		</div>

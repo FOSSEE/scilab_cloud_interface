@@ -1,10 +1,12 @@
 <?php
-    $book_id = $preference_id;
+    require_once('db-connect.php');
+    $book_id = $_POST['book_id'];
+    // $book_id = $preference_id;
     $output = "";
-    $query = "select * from textbook_companion_preference where id = {$book_id}";
+    $query = "SELECT * FROM textbook_companion_preference WHERE id = {$book_id}";
     $result = mysql_query($query);
     $preference =mysql_fetch_array($result);
-    $query = "select * from textbook_companion_proposal where id = {$preference['proposal_id']}";
+    $query = "SELECT * FROM textbook_companion_proposal WHERE id = {$preference['proposal_id']}";
     $result = mysql_query($query);
     $proposal = mysql_fetch_array($result);
     $output .= "<div class='contributor'><b>Contributor:</b> {$proposal['full_name']} </div>";

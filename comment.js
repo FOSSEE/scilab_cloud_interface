@@ -30,8 +30,9 @@ $(document).ready(function(){
         safe($comment_type);
         safe($comment_body);
         safe($comment_email);
+        $error_msg.hide();
         
-        if(!$("#example").val()) {
+        if(!$("#example").val() && $comment_type.val() != "7") {
             $error_msg.html("Please select a category, book, chapter and an example before reporting a bug.")
             $error_msg.show();
             errors = 1;
