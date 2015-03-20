@@ -7,7 +7,7 @@
 		$result = mysql_query($query);
 		while($row = mysql_fetch_array($result)) {
 			if(in_array(end(explode('.', $row['filepath'])), $extensions)) {
-				$file = file_get_contents('../scilab_in/uploads/'.$row['filepath'], true);
+				$file = file_get_contents('../scilab_in_2015/uploads/'.$row['filepath'], true);
 				$data .= $file;
 			}
 		}
@@ -15,7 +15,7 @@
 		$result = mysql_query($query);
 		while($row = mysql_fetch_array($result)) {
 			if(in_array(end(explode('.', $row['filepath'])), $extensions)) {
-				$file = file_get_contents('../scilab_in/uploads/'.$row['filepath'], true);
+				$file = file_get_contents('../scilab_in_2015/uploads/'.$row['filepath'], true);
 				$data .= $file;
 			}
 		}

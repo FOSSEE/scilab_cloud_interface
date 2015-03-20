@@ -1,5 +1,5 @@
 <?php
-	require_once('../scilab_in/sites/default/settings.php');
+	require_once('../scilab_in_2015/sites/default/settings.php');
 	$db_data = str_replace("mysql://", "", $db_url['default']);
 	$tmp_db_data = explode(":", $db_data);
 	$db_user = $tmp_db_data[0];

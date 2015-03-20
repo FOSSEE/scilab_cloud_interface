@@ -198,7 +198,16 @@
 								$("#sdwn").attr("href","http://scilab-test.garudaindia.in/cloud/graphs/"+msg["user_id"]+"/"+msg["graph"]+".png");
 								$("#single_image").trigger("click");
 							}
-						}
+						},
+                        error: function () {
+                             $("#submit").html("Execute");
+                            $('.cls-body').removeClass('loading-cls');
+                            $('#submit').removeClass('loading-cls');
+                            $('#input').removeClass('loading-cls');
+                            $('#output').removeClass('loading-cls');
+
+                             $("#output").val('502 Bad Gateway');
+                        }
 					});
 				});
 			});
@@ -313,7 +322,7 @@
 			<tr>
 				<td colspan="2">
                     <div id="le" class="lalg">
-                        <?php if($eid) echo "Chapter"; ?>
+                        <?php if($eid) echo "Example"; ?>
                     </div>
                     <div id="e">
                         <?php if($eid) echo $elements["examples"]; ?>
@@ -351,7 +360,7 @@
 								if($result) {
 									while($row = mysql_fetch_array($result)) {
 										if(in_array(end(explode('.', $row['filepath'])), $extensions)) {
-											$file = file_get_contents('../scilab_in/uploads/'.$row['filepath'], true);
+											$file = file_get_contents('../scilab_in_2015/uploads/'.$row['filepath'], true);
 											$data .= $file;
 										}
 									}
@@ -359,7 +368,7 @@
 									$result = mysql_query($query);
 									while($row = mysql_fetch_array($result)) {
 										if(in_array(end(explode('.', $row['filepath'])), $extensions)) {
-											$file = file_get_contents('../scilab_in/uploads/'.$row['filepath'], true);
+											$file = file_get_contents('../scilab_in_2015/uploads/'.$row['filepath'], true);
 											$data .= $file;
 										}
 									}
@@ -427,7 +436,6 @@
 			<p class="test-footer" style="font-size: 10px;color: lightgoldenrodyellow;text-align: center;margin: 0px 0px 0px 0px;">Disclaimer: Scilab is a trademark of <a href="http://www.inria.fr/en/" target="_blank" class="ext" style="color:#FFFFFF;">Inria</a><span class="ext"></span> (registered at the INPI for France and the rest of the World) and <a href="http://www.scilab-enterprises.com/" target="_blank" class="ext" style="color:#FFFFFF;">Scilab Enterprises</a><span class="ext"></span> is granted exclusive rights for Scilab Trademark.
             <br>Powered by Garuda cloud -  <a href="http://>megha.garudaindia.in" target="_blank" class="ext" style="color:#FFFFFF;">megha.garudaindia.in</a>
 			</p>
-			<h3 style="margin:3px 0px 0px 0px;">Copyright &copy; IIT Bombay</h3>
 		</div>
 
 	<script src="acknowledge.js"></script>
