@@ -183,6 +183,7 @@
 						url: "submit.php",
 						data:{code:$("#input").val(),graphicsmode:val},
 						dataType: "json",
+                                                timeout: 15000,
 						success: function(resp ) {
 							msg = resp["response"];
 
@@ -199,13 +200,18 @@
 								$("#single_image").trigger("click");
 							}
 						},
-                        error: function () {
+                        error: function (x, t, m) {
                              $("#submit").html("Execute");
                             $('.cls-body').removeClass('loading-cls');
                             $('#submit').removeClass('loading-cls');
                             $('#input').removeClass('loading-cls');
                             $('#output').removeClass('loading-cls');
-
+                            if(t==="timeout") {
+                                     alert("Server is unable to serve your request. Please try after some time");
+                                    
+                            } else {
+                                  alert(t);  
+			      }			             
                              $("#output").val('502 Bad Gateway');
                         }
 					});
