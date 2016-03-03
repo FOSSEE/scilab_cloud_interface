@@ -238,7 +238,8 @@ echo '<center><div style="background:red;height:45px;width:80%;padding-top:20px;
 		<div class="banner">
 			<a href="http://cloud.scilab.in" class="home-link" title="Home-Scilab on Cloud"><img src="images/scilab-logo.png" class="logo" alt="Home"></a>
 
-			<div class="site-name">Scilab on Cloud</div>
+			<div class="site-name">Scilab on Cloud <sub><span style="font-style: italic; font-size: 10px;color: lightgoldenrodyellow;text-align: center;margin: 0px 0px 0px 0px;">Powered by Garuda cloud -  <a href="http://>megha.garudaindia.in" target="_blank" class="ext" style="color:#FFFFFF;">megha.garudaindia.in</a></span></sub>
+            </div>
 
 			<div id="banner-tabs">
 				<a class="fancymenu" title="Scilab on GARUDA Cloud" href="#abuot1" >About</a>
@@ -445,6 +446,19 @@ echo '<center><div style="background:red;height:45px;width:80%;padding-top:20px;
 					</div>
 				</td>
 			</tr>
+			<tr>
+                <td colspan="2" class="footer white-text">
+                    <p class="test-footer" style="font-size: 10px;color: lightgoldenrodyellow;text-align: center;margin: 0px 0px 0px 0px;">Disclaimer</p>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:50%" class="footer white-text">
+                    <p class="test-footer" style="font-size: 10px;color: lightgoldenrodyellow;text-align: center;margin: 0px 0px 0px 0px;">Every effort is made to make all the codes to run smoothly. However, Scilab Cloud takes no responsibility for, and will not be liable for, the website being temporarily unavailable due to technical issues and code not producing accurate outputs due to any toolboxes.</p>
+                </td>
+                <td class="footer white-text">
+                    <p class="test-footer" style="font-size: 10px;color: lightgoldenrodyellow;text-align: center;margin: 0px 0px 0px 0px;">Scilab is a trademark of <a href="http://www.inria.fr/en/" target="_blank" class="ext" style="color:#FFFFFF;">Inria</a><span class="ext"></span> (registered at the INPI for France and the rest of the World) and <a href="http://www.scilab-enterprises.com/" target="_blank" class="ext" style="color:#FFFFFF;">Scilab Enterprises</a><span class="ext"></span> is granted exclusive rights for Scilab Trademark.</p>
+                </td>
+            </tr>
 		</table>
         <div id="acknowledge" style="display:none;">
             <?php 
@@ -453,13 +467,9 @@ echo '<center><div style="background:red;height:45px;width:80%;padding-top:20px;
                 }
             ?>
         </div>
-		<div class="footer white-text">
-			<p class="test-footer" style="font-size: 10px;color: lightgoldenrodyellow;text-align: center;margin: 0px 0px 0px 0px;">Disclaimer: Scilab is a trademark of <a href="http://www.inria.fr/en/" target="_blank" class="ext" style="color:#FFFFFF;">Inria</a><span class="ext"></span> (registered at the INPI for France and the rest of the World) and <a href="http://www.scilab-enterprises.com/" target="_blank" class="ext" style="color:#FFFFFF;">Scilab Enterprises</a><span class="ext"></span> is granted exclusive rights for Scilab Trademark.
-            <br>Powered by Garuda cloud -  <a href="http://>megha.garudaindia.in" target="_blank" class="ext" style="color:#FFFFFF;">megha.garudaindia.in</a>
-			</p>
-		</div>
 
 	<script src="acknowledge.js"></script>
     <script src="comment.js"></script>
 	</body>
 </html>
+
