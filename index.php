@@ -238,7 +238,7 @@ echo '<center><div style="background:red;height:45px;width:80%;padding-top:20px;
 		<div class="banner">
 			<a href="http://cloud.scilab.in" class="home-link" title="Home-Scilab on Cloud"><img src="images/scilab-logo.png" class="logo" alt="Home"></a>
 
-			<div class="site-name">Scilab on Cloud <sub><span style="font-style: italic; font-size: 10px;color: lightgoldenrodyellow;text-align: center;margin: 0px 0px 0px 0px;">Powered by Garuda cloud -  <a href="http://>megha.garudaindia.in" target="_blank" class="ext" style="color:#FFFFFF;">megha.garudaindia.in</a></span></sub>
+			<div class="site-name">Scilab on Cloud <sub><span style="font-style: italic; font-size: 10px;color: lightgoldenrodyellow;text-align: center;margin: 0px 0px 0px 0px;">Powered by Garuda cloud -  <a href="http://megha.garudaindia.in" target="_blank" class="ext" style="color:#FFFFFF;">megha.garudaindia.in</a></span></sub>
             </div>
 
 			<div id="banner-tabs">
@@ -472,4 +472,5 @@ echo '<center><div style="background:red;height:45px;width:80%;padding-top:20px;
     <script src="comment.js"></script>
 	</body>
 </html>
+
 
