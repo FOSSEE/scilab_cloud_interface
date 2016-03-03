@@ -183,7 +183,7 @@
 						url: "submit.php",
 						data:{code:$("#input").val(),graphicsmode:val},
 						dataType: "json",
-                                                timeout: 15000,
+                                                timeout: 60000,
 						success: function(resp ) {
 							msg = resp["response"];
 
@@ -219,6 +219,21 @@
 			});
 		</script>
 	</head>
+<?php
+//date_default_timezone_set('Asia/Kolkata');
+$today = date("Y-m-d H:i:s");
+$banner_float_start_date = "2015-12-24 00:00:00.1";
+$banner_float_end_date = "2016-01-04 24:59:59.9";
+if ($today >= $banner_float_start_date) {
+
+if ($today <= $banner_float_end_date) {
+
+echo '<center><div style="background:red;height:45px;width:80%;padding-top:20px;font-size:20px;"> Scilab on Cloud service is not available from 24th Dec 2015 to 4th Jan 2016 due to maintenance of Garuda cloud server .</div></center>';
+
+}
+}
+?>
+</br>
 	<body background="images/body-bg.png" class="cls-body">
 		<div class="banner">
 			<a href="http://cloud.scilab.in" class="home-link" title="Home-Scilab on Cloud"><img src="images/scilab-logo.png" class="logo" alt="Home"></a>

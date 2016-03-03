@@ -14,8 +14,7 @@
 
 			 	echo "<p>Thank you for your valuable feedback.</p>";
 
-				$to = "kannan@iitb.ac.in, lavitha89@gmail.com, web-team@fossee.in, rupakrokade@gmail.com, bhavani.jalkrish@gmail.com, shamika.i.nair@gmail.com, sysads@fossee.in";
-				// $to = "rush2jrp@gmail.com, jayaram@iitb.ac.in";
+				$to = "scilab-cloud@fossee.in";
 				$subject = "New Cloud Comment";
 				$message = "
                     A new comment has been posted. <br> 
