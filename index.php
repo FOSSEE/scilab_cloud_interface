@@ -223,12 +223,12 @@
 //date_default_timezone_set('Asia/Kolkata');
 $today = date("Y-m-d H:i:s");
 $banner_float_start_date = "2015-12-24 00:00:00.1";
-$banner_float_end_date = "2016-01-04 24:59:59.9";
+$banner_float_end_date = "2016-03-23 17:59:59.9";
 if ($today >= $banner_float_start_date) {
 
 if ($today <= $banner_float_end_date) {
 
-echo '<center><div style="background:red;height:45px;width:80%;padding-top:20px;font-size:20px;"> Scilab on Cloud service is not available from 24th Dec 2015 to 4th Jan 2016 due to maintenance of Garuda cloud server .</div></center>';
+echo '<center><div style="background:red;height:45px;width:80%;padding-top:20px;font-size:20px;"> Under maintenance: 22-3-2016(2 PM) to 23-3-2016(6 PM). Thank you for your patience.</div></center>';
 
 }
 }
