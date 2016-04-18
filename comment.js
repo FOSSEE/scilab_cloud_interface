@@ -55,7 +55,7 @@ $(document).ready(function(){
                 data: {
                     category: $("#categories").val(),
                     books: $("#books").val(),
-                    chapter: $("#books").val(),
+                    chapter: $("#chapter").val(),
                     example: $("#example").val(),
                     type: $comment_type.val(),
                     comment: $comment_body.val(),
