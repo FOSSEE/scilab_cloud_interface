@@ -31,7 +31,8 @@ if (isset($_POST['type']) && isset($_POST['comment']))
                     A new comment has been posted. <br><br>
 
                      Type: {$types[$_POST['type']]} <br>
-                     Book: {$row->book} <br>
+                     Category: {$category} <br>
+		     Book: {$row->book} (Author: {$row->author}, Publisher: {$row->publisher}) <br>
                      Chapter: {$row->chapter_name} ({$row->chapter_no}) <br>
                      Example: <a href= 'http://cloud.scilab.in/index.php?eid={$exmpale_id}' target='_blank' >{$row->example_caption}</a> ({$row->example_no}) <br><br>
 
@@ -39,7 +40,7 @@ if (isset($_POST['type']) && isset($_POST['comment']))
 
                     Link: http://scilab.in/cloud_comments
                 ";
-    $from          = "textbook@scilab.in";
+    $from          = "email@email.in";
     $headers       = "From: " . $from . "\r\n";
     $headers .= "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
