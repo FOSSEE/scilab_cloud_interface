@@ -14,15 +14,15 @@ $(document).ready(function(){
     var $comment_notify = $("#comment-notify");
     var $comment_email = $("#comment-email");
     var $comment_email_wrapper = $("#comment-email-wrapper");
-    $comment_email_wrapper.hide();
+    $comment_email_wrapper.show(); // to hide change show to hide
 
-    $comment_notify.click(function() {
+  /*  $comment_notify.click(function() {
         if($(this).attr("checked")) {
             $comment_email_wrapper.show();
         } else {
             $comment_email_wrapper.hide();
         }
-    });
+    });*/
 
     $("#comment-form").submit(function(e) {
         /* reset all the previous errors */
