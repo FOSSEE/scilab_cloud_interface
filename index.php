@@ -427,17 +427,17 @@ echo '<center><div style="background:red;height:45px;width:80%;padding-top:20px;
 								<option value=3>Execution error</option>
 								<option value=4>Missing example(s)</option>
 								<option value=6>Blank output</option>
-								<option value=7>Any other / General</option>
+								<!--<option value=7>Any other / General</option>-->
 							</select>
 							<br><br>
 
 							<label>Description:</label><br>
 							<textarea id="comment-body" rows="6" cols="50" placeholder="Please tell us more..."></textarea> <br><br>
-							<input id="comment-notify" type="checkbox"> I want to be notified. <br> <br>
+							<input id="comment-notify" type="checkbox" checked disabled> I want to be notified. <br> <br>
 			
 							<div id="comment-email-wrapper">
-								<label>Email:</label><br>
-								<input id="comment-email" type="text" name='email'> <br><br>
+								<label>Email:<span id="mandetory" style="color:red">*</span></label><br>
+								<input id="comment-email" type="text" name='email' required > <br><br>
 							</div>
 							
 							<input type="submit" value="Submit">
