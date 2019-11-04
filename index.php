@@ -247,7 +247,7 @@ echo '<center><div style="background:red;height:45px;width:80%;padding-top:20px;
 				<div id="abuot1" style="width:400px; display: none; padding: 5px; font-size: 0.8em; color: black;">
 					<b>About Scilab on GARUDA Cloud.</b>
 
-					<p style="text-align: justify; ">Scilab on Cloud facilitates execution of the codes for particular example(s) online. The results can then be verified with the solved example(s) from the textbook. It is also possible to change the values of the variables and in fact, the code itself, and execute it. In addition to the given examples, one can also copy and paste (or) write a new code in the input box provided and execute the same. <a href="http://scilab.in/scilab-on-cloud">Read more.. </a>
+					<p style="text-align: justify; ">Scilab on Cloud facilitates execution of the codes for particular example(s) online. The results can then be verified with the solved example(s) from the textbook. It is also possible to change the values of the variables and in fact, the code itself, and execute it. In addition to the given examples, one can also copy and paste (or) write a new code in the input box provided and execute the same. <a href="https://ieeexplore.ieee.org/abstract/document/6821028/" target="_blank">Click here</a> to view IEEE paper on Scilab on Cloud and Textbook Companion Project: A Web 2.0 Service for Open Source Education. <a href="https://scilab.in/scilab-on-garuda-cloud">Read more.. </a>
 					</p>
 				</div>
 
